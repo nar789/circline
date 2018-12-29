@@ -12,4 +12,7 @@ $(function () {
 		if(this.id=='female')
 			{$('#female').addClass("female-hover");sex=2;}
 	});
+	$('#date').click(function(){
+		$('#date').attr('type','date').click();
+	});
 });
