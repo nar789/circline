@@ -1,8 +1,19 @@
+meta(charset='utf-8')
+meta(name='viewport',content='width=device-width, initial-scale=1, shrink-to-fit=no')
 script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
 link(rel='stylesheet',href='css/index.css')
+link(href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet")
+
 h1 숨도! 쉬지! 말고! 뛰어!
 h2 Just! Run! Go!
 
+div.modal
+	div.modal-contents
+
+div.modal-text
+	div.countdown#countdown 5
+	div.timer#timer 00:00
+	div.ranking#ranking 1등
 section.world
 	div.wind
 		div.wind.one#windone
@@ -14,8 +25,9 @@ section.world
 
 	div.floor
 	
-
-	div.stick
+	img.flag#flag(src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNNCAyNGgtMnYtMjRoMnYyNHptMTgtMjEuMzg3cy0xLjYyMSAxLjQzLTMuNzU0IDEuNDNjLTMuMzYxIDAtMy40MzYtMi44OTUtNy4zMzctMi44OTUtMi4xMDggMC00LjA3NS45OC00LjkwOSAxLjY5NHYxMi4wODVjMS4xODMtLjgxOSAyLjk3OS0xLjY4MSA0LjkyMi0xLjY4MSAzLjY4NSAwIDQuMjAxIDIuNzU0IDcuNDg1IDIuNzU0IDIuMTIxIDAgMy41OTMtMS4zNTkgMy41OTMtMS4zNTktMS43NDItMS4yNTMtMy4wNzEtMi45NTQtMy43NzgtNC45MzIgMS40NjQtMS4yNzggMy41MDgtNC45NjIgMy43NzgtNy4wOTZ6Ii8+PC9zdmc+")
+	
+	div.stick#stick
 		div.head
 		div.arm.left
 			div.bottom
@@ -30,5 +42,5 @@ div.gage
 
 div.button(
 	onclick="increase_speed()"
-) touch me!
+) 눌러! 눌러!
 script(src="js/index.js")
