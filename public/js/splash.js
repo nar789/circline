@@ -10,4 +10,9 @@ $(document).ready(function () {
 			});
 		});
 
+	setTimeout(function(){
+		$("body").fadeOut(1000,function(){
+			window.location="join";
+		});
+	},3000);
 })

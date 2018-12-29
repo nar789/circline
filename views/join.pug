@@ -1,0 +1,48 @@
+html
+	head
+		meta(charset='utf-8')
+		meta(name='viewport',content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		title join
+		link(rel='stylesheet',href='https://use.fontawesome.com/releases/v5.0.6/css/all.css')
+		link(rel='stylesheet',href='css/nucleo-icons.css')
+		link(rel='stylesheet',href='css/join.css')
+		link(rel='stylesheet',href='css/black-dashboard.css')
+		link(rel='stylesheet',href='demo/demo.css')
+		link(rel='stylesheet',href='https://fonts.googleapis.com/css?family=Josefin+Sans')
+		link(rel='stylesheet',href='https://fonts.googleapis.com/css?family=Black+Han+Sans')
+
+		
+	body
+		div.container
+			div.card.card-white.card-register.mt-3
+				div.card-header
+					img.card-img(src='img/card-primary.png')
+					p.card-title.ml-1 join us
+				div.card-body
+					div.form
+						div.input-group
+							div.input-group-prepend
+								div.input-group-text
+									i.tim-icons.icon-single-02
+							input.form-control(placeholder="닉네임을 입력해주세요.")
+
+						div.input-group
+							div.input-group-prepend
+								div.input-group-text
+									i.tim-icons.icon-calendar-60
+							input.form-control(type='date',placeholder="생년월일을 입력해주세요.")
+
+						center.mt-5.text 성별을 선택해주세요.
+							br
+							br
+							i.fas.fa-mars.mr-5.sex#male
+							i.fas.fa-venus.sex#female
+				div.card-footer.text-center
+					a.btn.btn-primary.btn-round.btn-lg(href='#') 시작하기
+
+		script(src='js/jquery.min.js')
+		script(src='js/popper.min.js')
+		script(src='js/bootstrap.min.js')
+		script(src='js/black-dashboard.min.js')
+		script(src='js/demo.js')
+		script(src='js/join.js')
