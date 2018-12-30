@@ -1,8 +1,18 @@
 var sex=null;//1 is male and 2 is female.
-$(function () {
-	//blackDashboard.initDateTimePicker();
+$(function () {	
 	$('#date').datetimepicker({ignoreReadonly:true,
-		format:'YYYY-MM-DD'
+		format:'YYYY-MM-DD',
+		icons: {
+          time: "tim-icons icon-watch-time",
+          date: "tim-icons icon-calendar-60",
+          up: "fa fa-chevron-up",
+          down: "fa fa-chevron-down",
+          previous: 'tim-icons icon-minimal-left',
+          next: 'tim-icons icon-minimal-right',
+          today: 'fa fa-screenshot',
+          clear: 'fa fa-trash',
+          close: 'fa fa-remove'
+        }
 	});
 
 	$(".container").fadeIn('slow');
