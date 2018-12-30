@@ -16,4 +16,10 @@ $(function () {
 	var d=new Date();
 	var today=(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear();
 	$('#date').val(today);
+	$('#date').click(function(){
+		$('#date').blur(function(){
+			$('#date').data('DateTimePicker').show();	
+		});
+		
+	});
 });
