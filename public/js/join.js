@@ -12,7 +12,7 @@ $(function () {
 		if(this.id=='female')
 			{$('#female').addClass("female-hover");sex=2;}
 	});
-	$('#date').click(function(){
-		$('#date').attr('type','date').click();
-	});
+	var d=new Date();
+	var today=d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+	$('#date').val(today);
 });
