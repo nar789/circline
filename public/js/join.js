@@ -1,5 +1,6 @@
 var sex=null;//1 is male and 2 is female.
 $(function () {
+	blackDashboard.initDateTimePicker();
 	$(".container").fadeIn('slow');
 	sex=Math.floor(Math.random()*2)+1;
 	if(sex==1)$('#male').addClass("male-hover");
@@ -13,6 +14,6 @@ $(function () {
 			{$('#female').addClass("female-hover");sex=2;}
 	});
 	var d=new Date();
-	var today=d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+	var today=(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear();
 	$('#date').val(today);
 });

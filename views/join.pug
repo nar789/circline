@@ -31,8 +31,8 @@ html
 							div.input-group-prepend
 								div.input-group-text
 									i.tim-icons.icon-calendar-60
-							input.form-control#date(type='date',data-toggle='tooltip',data-placement='top',
-							title='태어난 생년월일을 입력해주세요.')
+							input.form-control.datepicker#date(type='text',data-toggle='tooltip',
+							data-placement='top',title='태어난 생년월일을 입력해주세요.')
 
 						center.mt-5.text 성별을 선택해주세요.
 							br
@@ -45,6 +45,8 @@ html
 		script(src='js/jquery.min.js')
 		script(src='js/popper.min.js')
 		script(src='js/bootstrap.min.js')
+		script(src='js/moment.min.js')
+		script(src='js/bootstrap-datetimepicker.js')
 		script(src='js/black-dashboard.min.js')
 		script(src='js/demo.js')
 		script(src='js/join.js')
