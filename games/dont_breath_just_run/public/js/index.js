@@ -74,6 +74,9 @@ var wind_generator=()=>{
             var activation_wind=Math.floor(Math.random()*wind.length);
             if(!wind[activation_wind].active){
                 wind[activation_wind].active=true;
+                // 바람 높이 조절
+                var wind_height=Math.floor(Math.random()*200);
+                $(wind[activation_wind].id).css("top",wind_height+"px");
             }
         }
     },100);
