@@ -1,6 +1,6 @@
 var sex=null;//1 is male and 2 is female.
 $(function () {
-	$("body").fadeIn('slow');
+	$(".container").fadeIn('slow');
 	sex=Math.floor(Math.random()*2)+1;
 	if(sex==1)$('#male').addClass("male-hover");
 	else $('#female').addClass("female-hover");

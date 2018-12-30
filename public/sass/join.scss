@@ -2,6 +2,9 @@ body{
 	margin:0px; padding:0px;
 	overflow:hidden;
 }
+.container{
+	display:none;
+}
 .text{
 	color:rgba(29, 37, 59, 0.2);
 }
@@ -21,7 +24,4 @@ body{
 
 .card-title{
 	color:black;
-}
-body{
-	display: none;
 }
