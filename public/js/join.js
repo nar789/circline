@@ -4,6 +4,7 @@ $(function () {
 	$('#date').datetimepicker({ignoreReadonly:true,
 		format:'YYYY-MM-DD'
 	});
+
 	$(".container").fadeIn('slow');
 	sex=Math.floor(Math.random()*2)+1;
 	if(sex==1)$('#male').addClass("male-hover");
