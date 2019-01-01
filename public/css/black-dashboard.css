@@ -29493,7 +29493,9 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .card-register.card-white .card-header .card-title {
-  color: #ffffff;
+  text-align: center;
+  font-size: 30px;
+  color:white;
 }
 
 @media (max-width: 991.98px) {

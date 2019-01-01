@@ -17,15 +17,29 @@ html
 			div.card.card-white.card-register.mt-3
 				div.card-header
 					img.card-img(src='img/card-primary.png')
-					p.card-title.ml-1 join us
+					p.card-title.ml-1 회원가입
 				div.card-body
 					div.form
 						div.input-group
 							div.input-group-prepend
 								div.input-group-text
 									i.tim-icons.icon-single-02
-							input.form-control(placeholder="닉네임을 입력해주세요.",data-toggle='tooltip',data-placement='top',
-							title='함께할 최고의 닉네임을 입력해주세요.')
+							input.form-control(placeholder="가입할 아이디를 입력해주세요.",data-toggle='tooltip',data-placement='top',
+							title='가입할 아이디를 입력해주세요.')
+
+						div.input-group
+							div.input-group-prepend
+								div.input-group-text
+									i.tim-icons.icon-badge
+							input.form-control(placeholder="패스워드를 입력해주세요.",data-toggle='tooltip',data-placement='top',
+							title='패스워드를 입력해주세요.')
+
+						div.input-group
+							div.input-group-prepend
+								div.input-group-text
+									i.tim-icons.icon-badge
+							input.form-control(placeholder="패스워드를 한번 더 입력해주세요.",data-toggle='tooltip',data-placement='top',
+							title='패스워드를 한번 더 입력해주세요.')
 
 						div.input-group
 							div.input-group-prepend
