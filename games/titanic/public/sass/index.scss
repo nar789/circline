@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #0073ff;
+  }
+  
+.back{
+  position:absolute;
+}
+.ship{
+  position:relative;
+  transform: rotate(36deg);
+  left:0px;
+}
+.sea{
+  position:absolute;
+  opacity:0.5;
+}
