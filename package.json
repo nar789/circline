@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"node src/app.js",
-    "build":"node-sass --output-style compressed public/sass --output public/css"
+    "start": "node src/app.js",
+    "build": "node-sass --output-style compressed public/sass --output public/css"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
+    "mongoose": "^5.4.1",
+    "node-gyp": "^3.8.0",
     "node-sass": "^4.11.0",
-    "pug": "^2.0.3"
+    "pug": "^2.0.3",
+    "scrypt": "^6.0.3"
   }
 }

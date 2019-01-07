@@ -31,5 +31,29 @@ $(function () {
 	var today=(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear();
 	//$('#date').val(today);
 	
-
 });
+
+function start(){
+	var userid=$("#userid").val();
+	var password=$("#password").val();
+	var password_check=$("#password_check").val();
+	if(password!=password_check){
+		alert('above passwords are different.');
+		return;
+	}
+	var birth=$("#date").val();
+
+	if(!userid || !password || !password_check || !birth){
+		alert("plz give me all informations.");
+		return;
+	}
+	var sexual=(sex==1)?"male":"female";
+	$.post('/api/user/join',{
+		userid:userid,
+		password:password,
+		birth:birth,
+		sex:sexual
+	},function(d,s){
+		alert(d.msg);
+	});
+}
