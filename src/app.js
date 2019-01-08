@@ -2,6 +2,8 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var scrypt = require('scrypt');
+var session = require('express-session');
+var FileStore = require('session-file-store')(session);
 //Schema define
 
 var Client = mongoose.model('Client',{package:String,nick:String});
@@ -32,6 +34,12 @@ app.set('view engine','pug');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+app.use(session({
+	secret:'#!CIRCLINEISOURFUTURE!@',
+	resave: false,
+	saveUninitialized: true,
+	store:new FileStore()
+}));
 
 
 app.get('/', function (req, res) {
@@ -47,7 +55,49 @@ app.get('/join', function (req, res) {
 	res.render('join',{});
 });
 
+app.get('/login',function(req,res){
+	if(req.session.logined===true)
+		res.redirect('/main');
+	else
+		res.render('login',{});
+});
+
+app.get('/logout',function(req,res){
+	if(req.session.userid){
+		req.session.destroy();
+	}
+	res.redirect('/login');
+});
+
+app.get('/main',function(req,res){
+	if(req.session.logined)
+		res.send('<center><h1>Welcome '+req.session.userid+' <a href=\'/logout\'>logout</a></h1></center>');
+	else
+		res.redirect('/login');
+});
+
+
+
 //RestAPI
+app.post('/api/user/login',function(req,res){
+	User.countDocuments({userid:req.body.userid},function(e,cnt){
+		if(e){console.log(e);return;}
+		if(cnt!=1){res.json({msg:'id or password is wrong.'});return;}
+		else{
+			User.findOne({userid:req.body.userid},function(e,d){
+				if(e){console.log(e);return;}
+				let comp=scrypt.verifyKdfSync(d.password, req.body.password);
+				if(comp){
+					req.session.logined=true;
+					req.session.userid=req.body.userid;
+					res.json({msg:'logined'});
+				}else{
+					res.json({msg:'id or password is wrong.'});
+				}
+			});	
+		}
+	});
+});
 app.post('/api/user/join',function(req,res){
 	var u=new User();
 	u.userid=req.body.userid;
@@ -66,6 +116,8 @@ app.post('/api/user/join',function(req,res){
 		if(!cnt){
 			u.save(function(err){
 				if(err){console.log(err);res.json({msg:"fail"});return;}
+				req.session.logined=true;
+				req.session.userid=req.body.userid;
 				res.json({msg:"success"});
 			});
 		}else{

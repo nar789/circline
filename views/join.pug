@@ -14,6 +14,8 @@ html
 		
 	body
 		div.container
+			center
+				h1.mt-5 회원가입
 			div.card.card-white.card-register.mt-3
 				div.card-header
 					img.card-img(src='img/card-primary.png')
@@ -30,14 +32,14 @@ html
 						div.input-group
 							div.input-group-prepend
 								div.input-group-text
-									i.tim-icons.icon-badge
+									i.tim-icons.icon-lock-circle
 							input.form-control#password(type='password',placeholder="패스워드를 입력해주세요.",data-toggle='tooltip',data-placement='top',
 							title='패스워드를 입력해주세요.')
 
 						div.input-group
 							div.input-group-prepend
 								div.input-group-text
-									i.tim-icons.icon-badge
+									i.tim-icons.icon-lock-circle
 							input.form-control#password_check(type='password',placeholder="패스워드를 한번 더 입력해주세요.",data-toggle='tooltip',data-placement='top',
 							title='패스워드를 한번 더 입력해주세요.')
 
@@ -49,13 +51,12 @@ html
 							data-placement='top',title='태어난 생년월일을 입력해주세요.',readonly,
 							placeholder='태어난 생년월일을 입력해주세요.')
 
-						center.mt-5.text 성별을 선택해주세요.
-							br
+						center.mt-3.text 성별을 선택해주세요.
 							br
 							i.fas.fa-mars.mr-5.sex#male
 							i.fas.fa-venus.sex#female
 				div.card-footer.text-center
-					a.btn.btn-primary.btn-round.btn-lg(href='#',onclick='start()') 시작하기
+					a.btn.btn-primary.btn-round.btn-lg(href='#',onclick='start()') 환영합니다.
 
 		script(src='js/jquery.min.js')
 		script(src='js/popper.min.js')

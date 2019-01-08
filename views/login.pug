@@ -1,0 +1,51 @@
+html
+	head
+		meta(charset='utf-8')
+		meta(name='viewport',content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		title login
+		link(rel='stylesheet',href='https://use.fontawesome.com/releases/v5.0.6/css/all.css')
+		link(rel='stylesheet',href='css/nucleo-icons.css')
+		link(rel='stylesheet',href='css/login.css')
+		link(rel='stylesheet',href='css/black-dashboard.css')
+		link(rel='stylesheet',href='demo/demo.css')
+		link(rel='stylesheet',href='https://fonts.googleapis.com/css?family=Josefin+Sans')
+		link(rel='stylesheet',href='https://fonts.googleapis.com/css?family=Black+Han+Sans')
+
+		
+	body
+		div.container
+			center
+				h1.mt-5 환영합니다!
+			div.card.card-white.card-register.mt-3
+				div.card-header
+					img.card-img(src='img/card-primary.png')
+					p.card-title.ml-1 &nbsp;
+				div.card-body
+					div.form
+						div.input-group
+							div.input-group-prepend
+								div.input-group-text
+									i.tim-icons.icon-single-02
+							input.form-control#userid(placeholder="아이디를 입력해주세요.",data-toggle='tooltip',data-placement='top',
+							title='아이디를 입력해주세요.')
+
+						div.input-group
+							div.input-group-prepend
+								div.input-group-text
+									i.tim-icons.icon-lock-circle
+							input.form-control#password(type='password',placeholder="패스워드를 입력해주세요.",data-toggle='tooltip',data-placement='top',
+							title='패스워드를 입력해주세요.')
+
+					
+				div.card-footer.text-center
+					a.btn.btn-primary.btn-round.btn-lg(href='#',onclick='start()') 로그인. 지금 바로 시작하기.
+					a.btn.btn-success.btn-round.btn-lg(href='#',onclick='join()') 아이디가 없습니다. 회원가입.
+
+		script(src='js/jquery.min.js')
+		script(src='js/popper.min.js')
+		script(src='js/bootstrap.min.js')
+		script(src='js/moment.min.js')
+		script(src='js/bootstrap-datetimepicker.js')
+		script(src='js/black-dashboard.min.js')
+		script(src='js/demo.js')
+		script(src='js/login.js')
