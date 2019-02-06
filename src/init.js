@@ -12,7 +12,7 @@ module.exports=function(express,bodyParser,session,FileStore){
 	}));
 
 	app.listen(3000, function () {
-	  console.log('Circline for (c)HUME running...');
+	  console.log('Circline designed by (c)HUME running...');
 	});
 	return app;
 }

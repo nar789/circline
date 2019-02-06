@@ -1,11 +1,26 @@
 module.exports=function(mongoose){
 	//Schema define
+	var db={};
+	db.Guser=mongoose.model('Guser',{
+		uid : mongoose.Schema.Types.ObjectId,
+		roomid : mongoose.Schema.Types.ObjectId
+	});
 
-	var Client = mongoose.model('Client',{package:String,nick:String});
-	var State = mongoose.model('State',{userid:String,state:String});
-	var Ret = mongoose.model('Ret',{userid:String,result:String});
+	db.Gstate=mongoose.model('Gstate',{
+		roomid : mongoose.Schema.Types.ObjectId,
+		state : String
+	});
 
-	var User = mongoose.model('User',{
+	db.Gret=mongoose.model('Gret',{
+		roomid : mongoose.Schema.Types.ObjectId,
+		ret : String
+	});
+
+	db.Groom=mongoose.model('Groom',{
+		package : String
+	});
+
+	db.User = mongoose.model('User',{
 		userid:String,
 		password:Buffer,
 		birth:Date,
@@ -18,4 +33,5 @@ module.exports=function(mongoose){
 		if(err){console.log(err);}
 		else{ console.log('Connected to '+dburl);}
 	});
+	return db;
 }

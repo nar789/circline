@@ -1,4 +1,4 @@
-module.exports=function(app,scrypt) {
+module.exports=function(app,scrypt,db) {
 
 	app.get('/', function (req, res) {
 		res.send('hi');
@@ -38,11 +38,11 @@ module.exports=function(app,scrypt) {
 
 	//RestAPI
 	app.post('/api/user/login',function(req,res){
-		User.countDocuments({userid:req.body.userid},function(e,cnt){
+		db.User.countDocuments({userid:req.body.userid},function(e,cnt){
 			if(e){console.log(e);return;}
 			if(cnt!=1){res.json({msg:'id or password is wrong.'});return;}
 			else{
-				User.findOne({userid:req.body.userid},function(e,d){
+				db.User.findOne({userid:req.body.userid},function(e,d){
 					if(e){console.log(e);return;}
 					let comp=scrypt.verifyKdfSync(d.password, req.body.password);
 					if(comp){
@@ -57,7 +57,7 @@ module.exports=function(app,scrypt) {
 		});
 	});
 	app.post('/api/user/join',function(req,res){
-		var u=new User();
+		var u=new db.User();
 		u.userid=req.body.userid;
 		u.birth=new Date(req.body.birth);
 		u.sex=req.body.sex;
@@ -69,7 +69,7 @@ module.exports=function(app,scrypt) {
 		//scrypt.verifyKdfSync(new Buffer(encodedPassword, 'base64'), inputPassword) //true or false
 
 
-		User.countDocuments({userid:u.userid},function(e,cnt){
+		db.User.countDocuments({userid:u.userid},function(e,cnt){
 			if(e){console.log(e);res.json({msg:"fail"});return;}
 			if(!cnt){
 				u.save(function(err){
@@ -79,7 +79,7 @@ module.exports=function(app,scrypt) {
 					res.json({msg:"success"});
 				});
 			}else{
-				User.findOne({userid:u.userid},function(e,d){
+				db.User.findOne({userid:u.userid},function(e,d){
 					if(e){console.log(e);return;}
 					console.log("saved_password : "+d.password.toString('base64'));
 					let comp=scrypt.verifyKdfSync(d.password, req.body.password);

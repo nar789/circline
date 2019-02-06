@@ -8,5 +8,5 @@ var FileStore = require('session-file-store')(session);
 
 var db=require('./db')(mongoose);
 var app=require('./init')(express,bodyParser,session,FileStore);
-var routes=require('./routes')(app,scrypt);
-
+var routes=require('./routes')(app,scrypt,db);
+var restapi=require('./restapi')(app,db);
