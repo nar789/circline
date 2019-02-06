@@ -47,7 +47,8 @@ module.exports=function(app,scrypt,db) {
 					let comp=scrypt.verifyKdfSync(d.password, req.body.password);
 					if(comp){
 						req.session.logined=true;
-						req.session.userid=req.body.userid;
+						//req.session.userid=req.body.userid;
+						req.session.userid=d.id;
 						res.json({msg:'logined'});
 					}else{
 						res.json({msg:'id or password is wrong.'});
@@ -72,10 +73,11 @@ module.exports=function(app,scrypt,db) {
 		db.User.countDocuments({userid:u.userid},function(e,cnt){
 			if(e){console.log(e);res.json({msg:"fail"});return;}
 			if(!cnt){
-				u.save(function(err){
+				u.save(function(err,user){
 					if(err){console.log(err);res.json({msg:"fail"});return;}
 					req.session.logined=true;
-					req.session.userid=req.body.userid;
+					//req.session.userid=req.body.userid;
+					req.session.userid=user.id;
 					res.json({msg:"success"});
 				});
 			}else{
