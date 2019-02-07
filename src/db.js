@@ -3,17 +3,10 @@ module.exports=function(mongoose){
 	var db={};
 	db.Guser=mongoose.model('Guser',{
 		uid : mongoose.Schema.Types.ObjectId,
-		roomid : mongoose.Schema.Types.ObjectId
-	});
-
-	db.Gstate=mongoose.model('Gstate',{
 		roomid : mongoose.Schema.Types.ObjectId,
-		state : String
-	});
-
-	db.Gret=mongoose.model('Gret',{
-		roomid : mongoose.Schema.Types.ObjectId,
-		ret : String
+		logintime : {type : Date, default : Date.now},
+		state : {type : String, default : "{}"},
+		result : {type : String, default : "{}"}
 	});
 
 	db.Groom=mongoose.model('Groom',{
@@ -31,7 +24,7 @@ module.exports=function(mongoose){
 	const dburl='mongodb://localhost:27017/db';
 	mongoose.connect(dburl,{ useNewUrlParser: true },function(err){
 		if(err){console.log(err);}
-		else{ console.log('Connected to '+dburl);}
+		else{ console.log('Connected to ' + dburl);}
 	});
 	return db;
 }
