@@ -28,8 +28,13 @@ module.exports=function(app,scrypt,db) {
 	});
 
 	app.get('/main',function(req,res){
+		//get the "app.gamelist" and render gamelist
+		//req.session.userid_string
+
 		if(req.session.logined)
-			res.send('<center><h1>Welcome '+req.session.userid+' <a href=\'/logout\'>logout</a></h1></center>');
+		{
+			res.render('main',{ gamelist : app.gamelist, userid : req.session.userid_string });
+		}
 		else
 			res.redirect('/login');
 	});
@@ -48,6 +53,7 @@ module.exports=function(app,scrypt,db) {
 					if(comp){
 						req.session.logined=true;
 						//req.session.userid=req.body.userid;
+						req.session.userid_string=req.body.userid;
 						req.session.userid=d.id;
 						res.json({msg:'logined'});
 					}else{
@@ -76,6 +82,7 @@ module.exports=function(app,scrypt,db) {
 				u.save(function(err,user){
 					if(err){console.log(err);res.json({msg:"fail"});return;}
 					req.session.logined=true;
+					req.session.userid_string_req.body.userid;
 					//req.session.userid=req.body.userid;
 					req.session.userid=user.id;
 					res.json({msg:"success"});
@@ -90,11 +97,6 @@ module.exports=function(app,scrypt,db) {
 				res.json({msg:"alreadyExist"});
 			}
 		});
-	});
-
-	app.post('/games/connect', function (req, res) {
-		
-		res.render('join',{});
 	});
 	
 }

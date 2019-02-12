@@ -1,0 +1,37 @@
+
+
+#bottom-nav{
+	border-top: 0.1px solid #32325d;
+	background-color: #27293d;
+	/*
+	background-color: #e14eca;
+    background-image: linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca);
+    background-size: 210% 210%;
+    background-position: top right;*/
+	
+
+	position:absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 50px;
+	
+	.container{
+		padding-left: 0px;
+		padding-right: 0px;
+		text-align: center;
+		.item{
+			width:22%;
+			display: inline-block;
+			text-align: center;
+		}
+		i{
+			line-height: 50px;
+			color:#e14eca;
+			font-size:15px;
+		}
+		i:hover{
+			font-weight: bold;
+			color:white;
+		}
+	}
+}
