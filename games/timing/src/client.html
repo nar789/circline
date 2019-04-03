@@ -1,5 +1,5 @@
 <body>
-  <input type=button value='ready' id=readybtn />
+  <input type=button value='unready' id=readybtn />
   <input type=button value='gamestart' id=gamestart />
   <input type=text />
 <script src='/socket.io/socket.io.js'></script>
@@ -10,7 +10,8 @@
 <script>
   const userid = 'myid';
   const roomid = 'a1b1';
-
+  let ready='unready';
+  let uid=0;
 
   var socket=io('/a.b.c');
   socket.emit('login',{
@@ -18,13 +19,21 @@
     roomid:roomid,
   });
 
+  socket.on('uid',(d)=>{
+  	uid=d;
+  });
+
 
   $("#readybtn").click(()=>{
-  	socket.emit('ready',{
-      ready:'ready',
-  	});
-  	$("#readybtn").attr('disabled','disabled');
-  	$("#readybtn").val('imready');
+  	if(ready==='unready'){
+  	  ready='ready';
+  	  $("#readybtn").val('imready');
+  	  socket.emit('setready',uid,'ready');
+  	}else{
+      ready='unready';
+  	  $("#readybtn").val('unready');
+  	  socket.emit('setready',uid,'unready');
+  	}
   });
 
   $('#gamestart').click(()=>{

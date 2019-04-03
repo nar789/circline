@@ -14,45 +14,50 @@ var gs = io.of('/a.b.c');
 
 let num = [];
 
+function info(){
+  var userid='';
+  var roomid='';
+  var ready='unready';
+  var rank=0;
+};
+let nums=new Array(100);
+
+let members=[];
+
 gs.on('connection',function(socket){
   console.log(socket.id + '  user connected');
 
   socket.on('login',function(d){
-    socket.userid=d.userid;
-    socket.roomid=d.roomid;
-    socket.__proto__.ready='unready';
-    socket.__proto__.rank=0;
-  	socket.join(socket.roomid,()=>{console.log(socket.id + " is join in " +
-      socket.roomid)});
+    console.log(d);
+    members.push(new info());
+    let i=members.length-1;
+    members[i].userid=d.userid;
+    members[i].roomid=d.roomid;
+    members[i].ready='unready';
+    members[i].rank=0;
+  	socket.join(d.roomid,()=>{
+      console.log(socket.id + " is join in " + d.roomid)
+      socket.emit('uid',i);
+    });
   });
 
-  socket.on('ready',function(d){
-    console.log(socket.ready);
-    socket.ready=d.ready;
-    console.log(socket.id + "'s state : " + socket.ready);
+  socket.on('setready',(uid,ready)=>{
+    console.log('__setready()  '+'   '+uid+'   '+ready)
+    members[uid].ready=ready;
   });
-
 
   socket.on('startrequest',()=>{
-
-    let cs=[];
-    gs.in(socket.roomid).clients((err,clients)=>{
-      if(err) throw err;
-      console.log(clients);
-    });
-
-
-    /*
-
-    for(let i=0;i<cs.){
-      if(c.ready==='unready')
+    for(var i=0;i<members.length;i++){
+      if(members[i].ready=='unready'){
+        console.log('someone is unready.');
         return;
+      }
     }
-
-    num[socket.roomid]=1;
-    io.to(socket.roomid).emit('gamestart');*/
-
+    for(var i=0;i<members.length;i++)
+      nums[i]=0;
+    console.log('success');
   });
+
 
   socket.on('call',function(d){
     if(d.num===num[socket.roomid]){
@@ -68,11 +73,7 @@ gs.on('connection',function(socket){
 
 
   socket.on('disconnect',function(){
-  	console.log('user disconnected');
-    let cs = io.sockets.clients(socket.roomid);
-    if(cs.length===0){
-
-    }
+  	console.log(socket.id + ' user disconnected');
   });
 
 
