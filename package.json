@@ -15,7 +15,7 @@
     "mongoose": "^5.7.5",
     "node-gyp": "^3.8.0",
     "node-sass": "^4.11.0",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "scrypt": "^6.0.3",
     "session-file-store": "^1.2.0"
   }
