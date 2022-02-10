@@ -14,7 +14,7 @@
     "express-session": "^1.15.6",
     "mongoose": "^5.7.5",
     "node-gyp": "^3.8.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "pug": "^2.0.3",
     "scrypt": "^6.0.3",
     "session-file-store": "^1.2.0"
